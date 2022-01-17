@@ -143,6 +143,22 @@
       </script>
     </template>
 
+    <template id="hs">
+      <script>
+        (function () {
+          console.log('Hubspot');
+          var output = document.getElementById('output');
+
+          var hsScript = document.createElement('script');
+          hsScript.async = true;
+          hsScript.defer = true;
+          hsScript.id = 'hs-script-loader';
+          hsScript.src = '//js.hs-scripts.com/20632911.js';
+          output.appendChild(hsScript);
+        })();
+      </script>
+    </template>
+
     <template id="partytown">
       <script>
         partytown = {
@@ -150,7 +166,9 @@
             if (
               url.hostname.includes('google-analytics') ||
               url.hostname.includes('www.googletagmanager.com') ||
-              url.hostname.includes('connect.facebook.net')
+              url.hostname.includes('connect.facebook.net') ||
+              url.hostname.includes('js.hs-scripts.com') ||
+              url.hostname.includes('js.hs-analytics.net')
             ) {
               const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
               proxyUrl.searchParams.append('url', url);
@@ -199,6 +217,7 @@
         const services = [
           { name: 'Facebook Pixel', id: 'fbp' },
           { name: 'Google Tag Manager', id: 'gtm' },
+          { name: 'Hubspot', id: 'hs' },
           { name: 'Wistia', id: 'wistia' },
         ];
 
