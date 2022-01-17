@@ -80,7 +80,10 @@
   <body>
     <h1>Services Benchmark</h1>
 
-    <p>Combine various services together on this page so it can be page speed tested.</p>
+    <p>
+      Combine various services together on this page so it can be page speed tested. "Standard" runs
+      the service as a traditional script, and "Partytown" will run it with "text/partytown".
+    </p>
 
     <template id="fbp">
       <script>
@@ -210,6 +213,8 @@
       </a>
     </p>
 
+    <div id="details"></div>
+
     <div id="output"></div>
 
     <script>
@@ -224,6 +229,11 @@
         const url = new URL(location.href);
         const table = document.getElementById('services');
         let includePartytownScript = false;
+
+        const details = document.getElementById('details');
+        details.innerHTML = [navigator.userAgent, 'crossOriginIsolated: ' + crossOriginIsolated]
+          .map((v) => `<p>` + v)
+          .join();
 
         if (location.hostname !== 'localhost') {
           const pageSpeed = document.getElementById('pagespeed');
