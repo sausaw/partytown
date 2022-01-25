@@ -1,6 +1,12 @@
 import { AudioTrackList, hasAudioTracks } from './audio-track';
-import { definePrototypePropertyDescriptor, getter, InstanceIdKey, WinIdKey } from './bridge';
-import { ReadyStateKey, TimeRangesKey } from './utils';
+import {
+  definePrototypePropertyDescriptor,
+  getter,
+  InstanceIdKey,
+  setter,
+  WinIdKey,
+} from './bridge';
+import { CurrentTimeKey, PlaybackRateKey, ReadyStateKey, TimeRangesKey } from './utils';
 import { TimeRanges } from './time-ranges';
 
 const HTMLMediaDescriptorMap: PropertyDescriptorMap & ThisType<any> = {
@@ -14,6 +20,38 @@ const HTMLMediaDescriptorMap: PropertyDescriptorMap & ThisType<any> = {
         }, 5000);
       }
       return this[TimeRangesKey];
+    },
+  },
+
+  currentTime: {
+    get() {
+      if (typeof this[CurrentTimeKey] !== 'number') {
+        this[CurrentTimeKey] = getter(this, ['currentTime']);
+
+        setTimeout(() => {
+          this[CurrentTimeKey] = undefined;
+        }, 1000);
+      }
+      return this[CurrentTimeKey];
+    },
+    set(rate) {
+      setter(this, ['currentTime'], rate);
+    },
+  },
+
+  playbackRate: {
+    get() {
+      if (typeof this[PlaybackRateKey] !== 'number') {
+        this[PlaybackRateKey] = getter(this, ['playbackRate']);
+
+        setTimeout(() => {
+          this[PlaybackRateKey] = undefined;
+        }, 1000);
+      }
+      return this[PlaybackRateKey];
+    },
+    set(rate) {
+      setter(this, ['playbackRate'], rate);
     },
   },
 

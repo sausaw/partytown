@@ -1,5 +1,7 @@
 export const ContextKey = Symbol();
+export const CurrentTimeKey = Symbol();
 export const MediaSourceKey = Symbol();
+export const PlaybackRateKey = Symbol();
 export const ReadyStateKey = Symbol();
 export const SourceBuffersKey = Symbol();
 export const SourceBufferTasksKey = Symbol();
