@@ -67,7 +67,7 @@
 
     <nav>
       <p>
-        <a id="otherlink" href=""></a>
+        <a id="otherlink" href="#"></a>
       </p>
       <p>
         <a href="https://github.com/BuilderIO/partytown/wiki/Enabling-Atomics">Enabling Atomics</a>
@@ -88,7 +88,7 @@
         } else {
           typeSpan.textContent = 'credentialless';
           link.textContent = 'Test COEP "require-corp"';
-          link.href = location.pathname + '?require-corp';
+          link.href = location.pathname + '?coep=require-corp';
         }
 
         if (window.crossOriginIsolated) {
