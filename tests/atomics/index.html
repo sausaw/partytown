@@ -49,27 +49,39 @@
         flex: 1;
         margin: 0 5px;
       }
+      .coep p {
+        position: relative;
+      }
+      iframe {
+        position: absolute;
+        width: 35px;
+        height: 35px;
+        top: -6px;
+        left: 110px;
+        border: 0;
+      }
     </style>
   </head>
   <body>
     <h1>Atomics COEP/COOP Headers</h1>
 
-    <div>
+    <div class="coep">
       <h2>Cross-Origin-Embedder-Policy (COEP)</h2>
-      <div>
+
+      <p>
         <code>credentialless</code>
         <iframe src="cross-origin-isolated.html"></iframe>
-      </div>
+      </p>
 
-      <div>
+      <p>
         <code>require-corp</code>
         <iframe src="cross-origin-isolated.html?coep=require-corp"></iframe>
-      </div>
+      </p>
     </div>
 
     <p id="ua"></p>
     <script>
-      document.getElementById('id').textContent = navigator.userAgent;
+      document.getElementById('ua').textContent = navigator.userAgent;
     </script>
 
     <nav>
