@@ -14,7 +14,14 @@
       ]
     },
     {
-      "source": "/atomics/require-corp.html",
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "query",
+          "key": "coep",
+          "value": "require-corp"
+        }
+      ],
       "headers": [
         {
           "key": "Cross-Origin-Embedder-Policy",
