@@ -26,10 +26,22 @@
         {
           "key": "Cross-Origin-Embedder-Policy",
           "value": "require-corp"
-        },
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [
         {
-          "key": "Cross-Origin-Opener-Policy",
-          "value": "same-origin"
+          "type": "query",
+          "key": "coep",
+          "value": "false"
+        }
+      ],
+      "headers": [
+        {
+          "key": "Cross-Origin-Embedder-Policy",
+          "value": "unsafe-none"
         }
       ]
     }

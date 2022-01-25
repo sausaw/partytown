@@ -52,20 +52,25 @@
     </style>
   </head>
   <body>
-    <h1>Atomics Test</h1>
+    <h1>Atomics COEP/COOP Headers</h1>
 
     <div>
-      <h2>Cross-Origin-Embedder-Policy</h2>
+      <h2>Cross-Origin-Embedder-Policy (COEP)</h2>
       <div>
         <code>credentialless</code>
-        <iframe src="https://partytown.builder.io/atomics/credentialless.html"></iframe>
+        <iframe src="cross-origin-isolated.html"></iframe>
       </div>
 
       <div>
         <code>require-corp</code>
-        <iframe src="https://partytown.builder.io/atomics/require-corp.html"></iframe>
+        <iframe src="cross-origin-isolated.html?coep=require-corp"></iframe>
       </div>
     </div>
+
+    <p id="ua"></p>
+    <script>
+      document.getElementById('id').textContent = navigator.userAgent;
+    </script>
 
     <nav>
       <p>
