@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <span id="result">👽</span>
+    <script>
+      if (window.crossOriginIsolated) {
+        document.getElementById('result').innerHTML = '✅';
+      } else {
+        document.getElementById('result').innerHTML = '❌';
+      }
+    </script>
+  </body>
+</html>
